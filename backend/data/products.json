@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Chanel No. 5",
+    "brand": "Chanel",
+    "price": 1450000,
+    "description": "A classic, elegant fragrance.",
+    "image": "https://images.unsplash.com/photo-1594034184171-18a5e305e94b?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "id": 2,
+    "name": "Dior Sauvage",
+    "brand": "Dior",
+    "price": 1250000,
+    "description": "A radically fresh composition.",
+    "image": "https://images.unsplash.com/photo-1582211594533-268f4f1edcb9?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "id": 3,
+    "name": "Bleu de Chanel",
+    "brand": "Chanel",
+    "price": 1380000,
+    "description": "A woody, aromatic fragrance.",
+    "image": "https://images.unsplash.com/photo-1595425970377-c9703c5ea701?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "id": 4,
+    "name": "Tom Ford Black Orchid",
+    "brand": "Tom Ford",
+    "price": 1850000,
+    "description": "Luxurious and sensual fragrance.",
+    "image": "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "id": 1777437356882,
+    "name": "nnnn",
+    "brand": "nnnn",
+    "price": "10",
+    "description": "salom\n",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGSiFtYk2MoSM3a7YPDAvC-u0Mm3zpuIT3BA&s"
+  }
+]

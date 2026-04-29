@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1777436890504,
+    "user": {
+      "id": 1,
+      "name": "Admin User",
+      "email": "admin@example.com"
+    },
+    "orderItems": [
+      {
+        "id": 1777435748432,
+        "name": "chanel",
+        "brand": "chanel",
+        "price": "110",
+        "description": "zor",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGSiFtYk2MoSM3a7YPDAvC-u0Mm3zpuIT3BA&s",
+        "qty": 18
+      }
+    ],
+    "shippingAddress": "namangan shahar",
+    "totalPrice": 1980,
+    "status": "Yetkazib berildi",
+    "createdAt": "2026-04-29T04:28:10.504Z"
+  },
+  {
+    "id": 1777437412749,
+    "user": {
+      "id": 1,
+      "name": "Admin User",
+      "email": "admin@example.com"
+    },
+    "totalPrice": 5930010,
+    "status": "Kutilmoqda",
+    "createdAt": "2026-04-29T04:36:52.749Z"
+  }
+]

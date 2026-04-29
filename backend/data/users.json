@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Admin User",
+    "email": "admin@example.com",
+    "password": "admin",
+    "isAdmin": true
+  },
+  {
+    "id": 2,
+    "name": "Test User",
+    "email": "user@example.com",
+    "password": "user",
+    "isAdmin": false
+  },
+  {
+    "id": 1777436156857,
+    "name": "abubakr ",
+    "email": "abubakrnigmatullayev56@gmail.com",
+    "password": "abuk@123",
+    "isAdmin": false
+  }
+]
