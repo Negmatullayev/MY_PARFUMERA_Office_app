@@ -16,41 +16,57 @@ export default function Navbar() {
     navigate('/login');
   };
 
+  const cartCount = (cart || []).reduce((a, c) => a + (c.qty || 1), 0);
+
   return (
-    <nav className="navbar">
-      <div className="nav-brand">
-        <Link to="/">MY PARFUMERA</Link>
-      </div>
-      <ul className="nav-links">
-        <li><Link to="/"><Home size={18} /> Bosh sahifa</Link></li>
-        <li><Link to="/contact"><Phone size={18} /> Bog'lanish</Link></li>
-        <li>
-          <Link to="/wishlist">
-            <Heart size={18} /> Sevimlilar ({wishlist?.length || 0})
+    <nav className="luxury-navbar">
+      <div className="navbar-container">
+        <div className="nav-brand">
+          <Link to="/" className="brand-logo">
+            MY <span>PARFUMERA</span>
           </Link>
-        </li>
-        <li>
-          <Link to="/cart">
-            <ShoppingCart size={18} /> Savat ({cart.reduce((a,c)=>a+c.qty,0)})
+        </div>
+
+        <div className="nav-menu">
+          <Link to="/" className="nav-item">
+            <Home size={20} />
+            <span>Bosh sahifa</span>
           </Link>
-        </li>
-        
-        {user ? (
-          <>
-            <li><Link to="/account"><User size={18} /> Akkaunt</Link></li>
-            {user.isAdmin && (
-              <li><Link to="/admin" className="admin-link"><LayoutDashboard size={18} /> Admin</Link></li>
-            )}
-            <li>
-              <button onClick={handleLogout} className="logout-btn">
-                <LogOut size={18} /> Chiqish
+          <Link to="/contact" className="nav-item">
+            <Phone size={20} />
+            <span>Aloqa</span>
+          </Link>
+          <Link to="/wishlist" className="nav-item badge-parent">
+            <Heart size={20} />
+            {wishlist?.length > 0 && <span className="badge">{wishlist.length}</span>}
+          </Link>
+          <Link to="/cart" className="nav-item badge-parent">
+            <ShoppingCart size={20} />
+            {cartCount > 0 && <span className="badge">{cartCount}</span>}
+          </Link>
+
+          <div className="nav-divider"></div>
+
+          {user ? (
+            <div className="user-section">
+              <Link to="/account" className="user-profile">
+                <div className="avatar-sm">{user.email[0].toUpperCase()}</div>
+              </Link>
+              {user.isAdmin && (
+                <Link to="/admin" className="admin-badge">Admin</Link>
+              )}
+              <button onClick={handleLogout} className="logout-icon-btn">
+                <LogOut size={20} />
               </button>
-            </li>
-          </>
-        ) : (
-          <li><Link to="/login" className="login-btn"><User size={18} /> Kirish</Link></li>
-        )}
-      </ul>
+            </div>
+          ) : (
+            <Link to="/login" className="luxury-login-btn">
+              <User size={18} />
+              <span>Kirish</span>
+            </Link>
+          )}
+        </div>
+      </div>
     </nav>
   );
 }

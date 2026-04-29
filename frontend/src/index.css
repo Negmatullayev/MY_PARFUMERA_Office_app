@@ -1,31 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-  --primary: #cba052;
-  --primary-dark: #b08a41;
-  --bg-dark: #121212;
-  --bg-card: #1e1e1e;
-  --text-main: #f5f5f5;
-  --text-muted: #a0a0a0;
-  --border: #333333;
-  --danger: #ff4757;
+  --primary: #d4af37; /* Metallic Gold */
+  --primary-glow: rgba(212, 175, 55, 0.3);
+  --bg-black: #0a0a0a;
+  --bg-card: #141414;
+  --text-gold: #f3e5ab;
+  --text-white: #ffffff;
+  --text-dim: #b0b0b0;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --danger: #ff4d4d;
+  --accent: #8e44ad;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg-dark);
-  color: var(--text-main);
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-black);
+  color: var(--text-white);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-h1, h2, h3, h4, .brand-font {
+h1, h2, h3, h4 {
   font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 a {
@@ -47,69 +54,147 @@ a {
   width: 100%;
 }
 
-/* Navbar */
-.navbar {
+/* Luxury Navbar */
+.luxury-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 1rem 0;
+}
+
+.navbar-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 3rem;
-  background-color: rgba(18, 18, 18, 0.8);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 100;
 }
 
-.nav-brand a {
+.brand-logo {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: 2px;
+}
+
+.brand-logo span {
   color: var(--primary);
-  letter-spacing: 1px;
 }
 
-.nav-links {
-  list-style: none;
+.nav-menu {
   display: flex;
-  gap: 2rem;
   align-items: center;
+  gap: 1.5rem;
 }
 
-.nav-links a, .nav-links button {
+.nav-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.95rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+}
+
+.nav-item:hover {
+  color: var(--primary);
+  background: var(--glass);
+}
+
+.badge-parent {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--primary);
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 800;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.nav-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--glass-border);
+  margin: 0 0.5rem;
+}
+
+.luxury-login-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, #b08a41 100%);
+  color: #000;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.luxury-login-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px var(--primary-glow);
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar-sm {
+  width: 35px;
+  height: 35px;
+  background: var(--glass);
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.logout-icon-btn {
   background: none;
   border: none;
-  color: var(--text-main);
+  color: var(--danger);
   cursor: pointer;
+  transition: opacity 0.3s;
 }
 
-.nav-links a:hover {
+.logout-icon-btn:hover {
+  opacity: 0.7;
+}
+
+.admin-badge {
+  background: rgba(212, 175, 55, 0.1);
   color: var(--primary);
-}
-
-.login-btn {
-  background-color: var(--primary) !important;
-  color: #fff !important;
-  padding: 0.5rem 1rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 4px;
-}
-
-.login-btn:hover {
-  background-color: var(--primary-dark) !important;
-}
-
-.logout-btn {
-  color: var(--danger) !important;
-}
-
-.admin-link {
-  color: var(--primary) !important;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid var(--primary);
 }
 
 /* Buttons */
@@ -288,37 +373,152 @@ input:focus, textarea:focus {
   color: #fff;
 }
 
-/* Auth Pages */
-.auth-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 60vh;
-}
-
-.auth-card {
-  background-color: var(--bg-card);
-  padding: 3rem;
-  border-radius: 8px;
+/* Luxury Auth Card */
+.luxury-auth-card {
+  background: var(--bg-card);
+  padding: 3.5rem;
+  border-radius: 24px;
   width: 100%;
-  max-width: 400px;
-  border: 1px solid var(--border);
+  max-width: 450px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
 }
 
-.auth-card h2 {
+.luxury-auth-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.auth-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.auth-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  background: var(--glass);
+  border: 1px solid var(--primary);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transform: rotate(45deg);
+}
+
+.auth-icon-wrapper > * {
+  transform: rotate(-45deg);
+}
+
+.auth-header h2 {
+  font-size: 2.2rem;
+  color: var(--text-white);
+  margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+.luxury-input-group {
+  margin-bottom: 1.8rem;
+}
+
+.luxury-input-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper .icon {
+  position: absolute;
+  left: 1.2rem;
   color: var(--primary);
+  transition: all 0.3s ease;
 }
 
-.error-msg {
-  background-color: rgba(255, 71, 87, 0.1);
-  color: var(--danger);
-  padding: 0.75rem;
-  border-radius: 4px;
-  margin-bottom: 1.5rem;
+.input-wrapper input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  padding: 1rem 1rem 1rem 3.5rem;
+  border-radius: 12px;
+  color: var(--text-white);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input-wrapper input:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--primary);
+  box-shadow: 0 0 15px var(--primary-glow);
+  outline: none;
+}
+
+.luxury-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary) 0%, #b08a41 100%);
+  color: #000;
+  border: none;
+  padding: 1.2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-top: 1rem;
+}
+
+.luxury-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px var(--primary-glow);
+  filter: brightness(1.1);
+}
+
+.luxury-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-footer {
   text-align: center;
-  border: 1px solid rgba(255, 71, 87, 0.3);
+  margin-top: 2rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.auth-footer a {
+  color: var(--primary);
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
 }
 
 /* Contact Page */
@@ -350,45 +550,203 @@ input:focus, textarea:focus {
   color: var(--text-muted);
 }
 
-/* Account Page */
-.account-details {
-  background-color: var(--bg-card);
-  padding: 3rem;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
+/* Account Page Layout */
+.account-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
   gap: 2rem;
   margin-top: 2rem;
-  border: 1px solid var(--border);
+  align-items: start;
 }
 
-.avatar {
-  width: 100px;
-  height: 100px;
-  background-color: var(--primary);
+.account-sidebar {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2.5rem 1.5rem;
+  position: sticky;
+  top: 100px;
+}
+
+.user-brief {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.luxury-avatar {
+  width: 80px;
+  height: 80px;
+  background: var(--glass);
+  border: 2px solid var(--primary);
   border-radius: 50%;
+  margin: 0 auto 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+  box-shadow: 0 0 20px var(--primary-glow);
 }
 
-.account-details .info h3 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+.user-brief h3 {
+  font-size: 1.4rem;
+  color: var(--text-white);
+  margin-bottom: 0.3rem;
 }
 
-.account-details .info p {
-  color: var(--text-muted);
+.user-brief p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.account-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.account-nav button {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  padding: 1rem 1.2rem;
+  text-align: left;
+  border-radius: 12px;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  gap: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-.account-details .role {
-  color: var(--primary) !important;
+.account-nav button:hover {
+  background: var(--glass);
+  color: var(--primary);
+}
+
+.account-nav button.active {
+  background: var(--primary);
+  color: #000;
+  box-shadow: 0 10px 20px var(--primary-glow);
+}
+
+.account-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.account-card {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 3rem;
+}
+
+.account-card h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--text-white);
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.profile-item span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.profile-item p {
+  font-size: 1.1rem;
   font-weight: 500;
+  color: var(--text-white);
+}
+
+.role-tag {
+  color: var(--primary) !important;
+  font-weight: 700 !important;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 0;
+  color: var(--text-dim);
+}
+
+.empty-state p {
+  margin: 1rem 0 2rem;
+}
+
+.luxury-btn-sm {
+  background: var(--primary);
+  color: #000;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+/* Settings Items */
+.settings-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.settings-section h3 {
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.setting-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.setting-toggle p {
+  color: var(--text-dim);
+}
+
+.luxury-btn-outline {
+  background: none;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.luxury-btn-outline:hover {
+  background: var(--primary);
+  color: #000;
+}
+
+@media (max-width: 992px) {
+  .account-layout {
+    grid-template-columns: 1fr;
+  }
+  .account-sidebar {
+    position: static;
+  }
 }
 
 /* Admin Page */

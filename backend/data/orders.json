@@ -43,5 +43,27 @@
     "totalPrice": 90,
     "status": "Yetkazib berildi",
     "createdAt": "2026-04-29T16:38:17.567Z"
+  },
+  {
+    "id": 1777482968722,
+    "user": {
+      "id": 1777436156857,
+      "name": "abubakr ",
+      "email": "abubakrnigmatullayev56@gmail.com"
+    },
+    "totalPrice": 24650030,
+    "status": "Yetkazib berildi",
+    "createdAt": "2026-04-29T17:16:08.722Z"
+  },
+  {
+    "id": 1777483138071,
+    "user": {
+      "id": 1777483106200,
+      "name": "nh",
+      "email": "aashdkjafh3313@gmail.com"
+    },
+    "totalPrice": 40,
+    "status": "Kutilmoqda",
+    "createdAt": "2026-04-29T17:18:58.071Z"
   }
 ]

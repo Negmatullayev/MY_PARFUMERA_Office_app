@@ -26,5 +26,12 @@
     "email": "abubakrteacher3311@gmail.com",
     "password": "asd123@",
     "isAdmin": false
+  },
+  {
+    "id": 1777483106200,
+    "name": "nh",
+    "email": "aashdkjafh3313@gmail.com",
+    "password": "asdfg123@#!",
+    "isAdmin": false
   }
 ]
