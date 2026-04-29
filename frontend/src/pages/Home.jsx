@@ -44,9 +44,9 @@ export default function Home() {
     else toast.success(`${product.name} sevimlilarga qo'shildi`);
   };
 
-  const brands = ['Barchasi', ...new Set(products.map(p => p.brand))];
+  const brands = ['Barchasi', ...new Set((Array.isArray(products) ? products : []).map(p => p.brand))];
 
-  const filteredProducts = products.filter(p => {
+  const filteredProducts = (Array.isArray(products) ? products : []).filter(p => {
     const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesBrand = selectedBrand === 'Barchasi' || p.brand === selectedBrand;
     return matchesSearch && matchesBrand;
@@ -81,7 +81,7 @@ export default function Home() {
       </header>
       
       <section className="products-grid">
-        {filteredProducts.map(product => {
+        {(filteredProducts || []).map(product => {
           const isLiked = wishlist.find(w => w.id === product.id);
           return (
             <Link to={`/product/${product.id}`} key={product.id} className="product-card">
