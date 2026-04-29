@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../utils/api';
 import { AuthContext } from '../context/AuthContext';
 import { User, Mail, Shield, Package } from 'lucide-react';
 import { formatCurrency } from '../utils/formatters';
@@ -14,7 +14,7 @@ export default function Account() {
       const fetchOrders = async () => {
         try {
           const config = { headers: { Authorization: `Bearer ${user.token}` } };
-          const { data } = await axios.get('http://localhost:5000/api/orders/myorders', config);
+          const { data } = await api.get('/orders/myorders', config);
           setOrders(data);
         } catch (error) {
           console.error("Buyurtmalarni olishda xatolik");

@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { Lock, Mail } from 'lucide-react';
@@ -14,7 +14,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const { data } = await api.post('/auth/login', { email, password });
       login(data);
       navigate('/account');
     } catch (err) {
@@ -32,12 +32,12 @@ export default function Login() {
             <label>Email</label>
             <div className="input-with-icon">
               <Mail className="icon" size={18} />
-              <input 
-                type="email" 
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)} 
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="admin@example.com"
-                required 
+                required
               />
             </div>
           </div>
@@ -45,12 +45,12 @@ export default function Login() {
             <label>Parol</label>
             <div className="input-with-icon">
               <Lock className="icon" size={18} />
-              <input 
-                type="password" 
-                value={password} 
-                onChange={(e) => setPassword(e.target.value)} 
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="admin"
-                required 
+                required
               />
             </div>
           </div>

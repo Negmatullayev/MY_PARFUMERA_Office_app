@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../utils/api';
 import { Trash2, CreditCard, Banknote, MapPin, Phone, User } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../context/AuthContext';
@@ -27,8 +27,8 @@ export default function Cart() {
     
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      await axios.post(
-        'http://localhost:5000/api/orders',
+      await api.post(
+        '/orders',
         {
           orderItems: cart,
           shippingAddress: `${shippingAddress} (Tel: ${phone})`,

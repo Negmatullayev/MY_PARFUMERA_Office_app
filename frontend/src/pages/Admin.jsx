@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { Trash2, PlusCircle, LayoutDashboard, Package, Users, ShoppingCart } from 'lucide-react';
@@ -23,13 +23,13 @@ export default function Admin() {
 
   const fetchData = async () => {
     const config = { headers: { Authorization: `Bearer ${user.token}` } };
-    const pData = await axios.get('http://localhost:5000/api/products');
+    const pData = await api.get('/products');
     setProducts(pData.data);
     
     try {
-      const oData = await axios.get('http://localhost:5000/api/orders', config);
+      const oData = await api.get('/orders', config);
       setOrders(oData.data);
-      const uData = await axios.get('http://localhost:5000/api/auth/users', config);
+      const uData = await api.get('/auth/users', config);
       setUsers(uData.data);
     } catch (e) { console.log(e); }
   };
@@ -38,7 +38,7 @@ export default function Admin() {
     e.preventDefault();
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      await axios.post('http://localhost:5000/api/products', newProduct, config);
+      await api.post('/products', newProduct, config);
       setNewProduct({ name: '', brand: '', price: '', description: '', image: '' });
       fetchData();
     } catch (error) { alert('Xatolik'); }
@@ -47,7 +47,7 @@ export default function Admin() {
   const handleDeleteProduct = async (id) => {
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      await axios.delete(`http://localhost:5000/api/products/${id}`, config);
+      await api.delete(`/products/${id}`, config);
       fetchData();
     } catch (error) { alert('Xatolik'); }
   };
@@ -55,7 +55,7 @@ export default function Admin() {
   const updateOrderStatus = async (id, status) => {
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      await axios.put(`http://localhost:5000/api/orders/${id}/status`, { status }, config);
+      await api.put(`/orders/${id}/status`, { status }, config);
       fetchData();
     } catch (error) { alert('Xatolik'); }
   };
